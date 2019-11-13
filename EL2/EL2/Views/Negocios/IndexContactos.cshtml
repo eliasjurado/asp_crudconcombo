@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EL2.Models.Contacto>
+
+@{
+    ViewBag.Title = "IndexContactos";
+}
+
+<h2>Contactos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Contacto", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codcontac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomcontac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dircontac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nompais)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codcontac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomcontac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dircontac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nompais)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.codcontac }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
